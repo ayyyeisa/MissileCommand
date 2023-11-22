@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class MissileSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform[] buildings;
-    private Transform[] targets;
+    
+    //private Transform[] targets;
     [SerializeField] private MissileController missilePrefab;
     [SerializeField] private PlayerController playerInstance;
+    [SerializeField] private BoxCollider2D missileSpawner;
 
     [SerializeField] private float minSpawnRate;
     [SerializeField] private float maxSpawnRate;
 
     public Coroutine MissileRef;
 
+    [SerializeField] private float trajectoryVariance = 10f;
 
     private void Start()
     {
-        GetBuildingPositions();
+        missileSpawner = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class MissileSpawner : MonoBehaviour
         }
     }
 
+    /*
     private void GetBuildingPositions()
     {
         for(int i = 0; i < buildings.Length; i++)
@@ -44,6 +47,7 @@ public class MissileSpawner : MonoBehaviour
         }
 
     }
+    */
 
     public IEnumerator StartMissileSpawns()
     {
@@ -55,10 +59,17 @@ public class MissileSpawner : MonoBehaviour
 
     private void Spawn()
     {
-         MissileController missile = Instantiate(missilePrefab, this.transform.position, Quaternion.EulerAngles(0, 0, missileDirection);
-         Instantiate(missile, this.transform.position, rotation);
+        Vector2 spawnPoint = GetSpawnArea(missileSpawner.bounds);
 
-     //   missile.SetTrajectory(//towards target)
+        float variance = Random.Range(-this.trajectoryVariance, this.trajectoryVariance);
+        Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
 
+        MissileController missile = Instantiate(missilePrefab, spawnPoint, rotation);
+        missile.Update();
+    }
+
+    private Vector2 GetSpawnArea(Bounds bounds)
+    {
+        return new Vector2(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
     }
 }
