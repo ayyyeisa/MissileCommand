@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody2D bullet;
     [SerializeField] private float speed;
 
+    [SerializeField] private PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,14 @@ public class Bullet : MonoBehaviour
         bullet.velocity = new Vector2(direction.x, direction.y).normalized * speed;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+    }
+
+    private void Update()
+    {
+        if (!playerController.gameIsRunning)
+        {
+            bullet.velocity = Vector2.zero;
+        }
     }
 
     void FixedUpdate()

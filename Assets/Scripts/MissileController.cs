@@ -11,14 +11,25 @@ public class MissileController : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float maxLifetime;
 
-    [SerializeField] private List<Transform> buildings;
-    private Transform target;
+    //[SerializeField] private List<Transform> buildings;
+    private GameObject target;
     private Vector3 targetVec;
+
+    [SerializeField] private BuildingList buildingList;
+    [SerializeField] private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         missile.GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if(!playerController.gameIsRunning)
+        {
+            missile.velocity = Vector2.zero;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +46,7 @@ public class MissileController : MonoBehaviour
         if (collision.transform.tag == "Building")
         {
             Destroy(gameObject);
-            buildings.Remove(target);
+          //  buildingInstance.UpdateList(target);
         }
         if(collision.transform.tag == "Player")
         {
@@ -45,24 +56,39 @@ public class MissileController : MonoBehaviour
 
     private Vector2 GenerateRandomTarget()
     {
-        int i = Random.Range(0, buildings.Count);
-        target = buildings[i];
+        int i = Random.Range(0, buildingList.buildings.Count);
+        target = buildingList.buildings[i];
         return target.transform.position;
     }
 
     public void SetTrajectory()
     {
         targetVec = GenerateRandomTarget();
-        speed = Random.Range(minSpeed, maxSpeed);
+        speed = Random.Range(minSpeed, maxSpeed) * GenerateSign();
 
         Vector3 direction = targetVec - transform.position;
-        Vector3 rotation = transform.position - targetVec;
         
         missile.velocity = new Vector2(direction.x, direction.y).normalized * speed;
         float rot = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
         missile.transform.rotation = Quaternion.Euler(0, 0, rot -90);
 
         Destroy(this.gameObject, this.maxLifetime);
+    }
+
+    private int GenerateSign()
+    {
+        int returnVal;
+        int sign = Random.Range(0, 2);
+        if (sign == 0)
+        {
+            returnVal = -1;
+        }
+        else //(sign == 1)
+        {
+            returnVal = 1;
+        }
+        return returnVal;
+
     }
 
 }
