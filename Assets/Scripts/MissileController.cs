@@ -47,7 +47,6 @@ public class MissileController : MonoBehaviour
         if (collision.transform.tag == "Building")
         {
             Destroy(gameObject);
-          //  buildingInstance.UpdateList(target);
         }
         if(collision.transform.tag == "Player")
         {

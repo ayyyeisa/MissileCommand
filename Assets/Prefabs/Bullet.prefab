@@ -50,6 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6869337615612149897}
   speed: 7
+  playerController: {fileID: 0}
+  explosionSpawner: {fileID: 0}
+  explosionPrefab: {fileID: 8876180582956997849, guid: 1a7ec1361f05c99438390d7aacc1cbfb, type: 3}
 --- !u!50 &6869337615612149897
 Rigidbody2D:
   serializedVersion: 4

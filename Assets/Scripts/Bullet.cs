@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private PlayerController playerController;
 
+    [SerializeField] private Explosion explosionPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,8 +57,15 @@ public class Bullet : MonoBehaviour
         else if(bullet.position == target)
         {
             Destroy(gameObject);
+            SpawnExplosion(new Vector2(mousePos.x, mousePos.y));
         }
 
+    }
+
+    public void SpawnExplosion(Vector2 position)
+    {
+        Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        explosionPrefab.Update();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
