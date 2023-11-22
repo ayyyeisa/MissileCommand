@@ -50,20 +50,19 @@ public class MissileController : MonoBehaviour
         return target.transform.position;
     }
 
-    private void SetTrajectory()
+    public void SetTrajectory()
     {
         targetVec = GenerateRandomTarget();
         speed = Random.Range(minSpeed, maxSpeed);
-        //missile.velocity = new Vector2(target.x, target.y).normalized * speed;
-        missile.transform.position = Vector2.MoveTowards(missile.transform.position, targetVec, speed * Time.deltaTime);
+
+        Vector3 direction = targetVec - transform.position;
+        Vector3 rotation = transform.position - targetVec;
+        
+        missile.velocity = new Vector2(direction.x, direction.y).normalized * speed;
         float rot = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+        missile.transform.rotation = Quaternion.Euler(0, 0, rot -90);
 
         Destroy(this.gameObject, this.maxLifetime);
     }
 
-    public void Update()
-    {
-        SetTrajectory();
-    }
 }

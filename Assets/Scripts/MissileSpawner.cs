@@ -38,17 +38,6 @@ public class MissileSpawner : MonoBehaviour
         }
     }
 
-    /*
-    private void GetBuildingPositions()
-    {
-        for(int i = 0; i < buildings.Length; i++)
-        {
-            targets[i] = buildings[i].transform;
-        }
-
-    }
-    */
-
     public IEnumerator StartMissileSpawns()
     {
         float spawnRate = Random.Range(minSpawnRate, maxSpawnRate);
@@ -65,7 +54,7 @@ public class MissileSpawner : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
 
         MissileController missile = Instantiate(missilePrefab, spawnPoint, rotation);
-        missile.Update();
+        missile.SetTrajectory();
     }
 
     private Vector2 GetSpawnArea(Bounds bounds)
