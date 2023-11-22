@@ -11,6 +11,7 @@ public class BuildingList : MonoBehaviour
     private void Start()
     {
         allDestroyed = false;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void UpdateList(GameObject building)

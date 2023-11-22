@@ -22,6 +22,7 @@ public class MissileController : MonoBehaviour
     void Start()
     {
         missile.GetComponent<Rigidbody2D>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -64,7 +65,7 @@ public class MissileController : MonoBehaviour
     public void SetTrajectory()
     {
         targetVec = GenerateRandomTarget();
-        speed = Random.Range(minSpeed, maxSpeed) * GenerateSign();
+        speed = Random.Range(minSpeed, maxSpeed);
 
         Vector3 direction = targetVec - transform.position;
         
@@ -73,22 +74,6 @@ public class MissileController : MonoBehaviour
         missile.transform.rotation = Quaternion.Euler(0, 0, rot -90);
 
         Destroy(this.gameObject, this.maxLifetime);
-    }
-
-    private int GenerateSign()
-    {
-        int returnVal;
-        int sign = Random.Range(0, 2);
-        if (sign == 0)
-        {
-            returnVal = -1;
-        }
-        else //(sign == 1)
-        {
-            returnVal = 1;
-        }
-        return returnVal;
-
     }
 
 }
