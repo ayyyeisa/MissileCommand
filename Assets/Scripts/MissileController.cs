@@ -18,6 +18,8 @@ public class MissileController : MonoBehaviour
     [SerializeField] private BuildingList buildingList;
     [SerializeField] private PlayerController playerController;
 
+    [SerializeField] private Explosion explosionPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +49,19 @@ public class MissileController : MonoBehaviour
         if (collision.transform.tag == "Building")
         {
             Destroy(gameObject);
+            SpawnExplosion(targetVec);
+
         }
         if(collision.transform.tag == "Player")
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SpawnExplosion(Vector2 position)
+    {
+        Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        explosionPrefab.Update();
     }
 
     private Vector2 GenerateRandomTarget()

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324104108608944300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -116,6 +116,8 @@ MonoBehaviour:
   maxSpeed: 7
   maxLifetime: 10
   buildingList: {fileID: 5220243762919590110, guid: 861d94fa478dee5499b82a02c6a18e1e, type: 3}
+  playerController: {fileID: 0}
+  explosionPrefab: {fileID: 8876180582956997849, guid: 88b4d2dea75418d49b7882e7b805f40c, type: 3}
 --- !u!1 &2625763221379808447
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,8 +188,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1110134553
-  m_SortingLayer: 4
+  m_SortingLayerID: 1352927051
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 99357187347e1f646b099f9d2899d43b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -270,8 +272,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1110134553
-  m_SortingLayer: 4
+  m_SortingLayerID: 1352927051
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c8db2630b4e92024183f13d0d7bde24e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
