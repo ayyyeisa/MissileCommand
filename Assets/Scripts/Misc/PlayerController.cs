@@ -1,3 +1,13 @@
+/********************************************************************
+// File Name : PlayerController.cs
+// Author : Isa Luluquisin
+// Creation Date : November 19, 2023
+//
+// Brief Description :  This is a file that handles the behavior of key inputs,
+                        as well as the rotation of the player barrel and launching
+                        of bullets.
+*****************************************************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +15,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    //reference to camera
     private Camera mainCam;
+    //where the mouse cursor clicked
     private Vector3 mousePos;
 
+    [Tooltip("Whether game is running or not")]
     public bool gameIsRunning;
+    [Tooltip("Screen that appears at the start of the game")]
     [SerializeField] private GameObject startScreen;
 
+    [Header("")]
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletTransform;
     [SerializeField] private bool canFire;
-    private float timer;
     [SerializeField] private float timeBetweenFiring = 0.3f;
+    //used to keep track of time to pace firing
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +48,7 @@ public class PlayerController : MonoBehaviour
         {
             RotateToCursor();
 
+            //spaces out bullet firing
             if(!canFire)
             {
                 timer += Time.deltaTime;
@@ -41,6 +58,7 @@ public class PlayerController : MonoBehaviour
                     timer = 0;
                 }
             }
+            //when there is a left click, a bullet is instantiated at the position and rotation of the barrel
             if(Input.GetMouseButton(0) && canFire)
             {
                 canFire = false;
@@ -50,6 +68,10 @@ public class PlayerController : MonoBehaviour
 
     }
     
+    /// <summary>
+    /// Rotates the barrel object to follow the cursor. The rotation is clamped so that it can never 
+    /// go off-screen.
+    /// </summary>
     private void RotateToCursor()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);

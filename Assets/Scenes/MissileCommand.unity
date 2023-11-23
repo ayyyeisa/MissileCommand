@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsRunning: 0
   startScreen: {fileID: 744234525}
-  bullet: {fileID: 1324104108608944300, guid: 342b6a138d3cd23489afac0a9d4a23db, type: 3}
+  bullet: {fileID: 8680362345495279915, guid: f02356a10a537624dba9625e1e936c10, type: 3}
   bulletTransform: {fileID: 491900603}
   canFire: 0
   timeBetweenFiring: 0.3

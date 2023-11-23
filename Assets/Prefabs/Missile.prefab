@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6869337615612149897}
   - component: {fileID: 2079827485626178771}
   - component: {fileID: 4013594645048563642}
+  - component: {fileID: 75598572872747287}
   m_Layer: 9
   m_Name: Missile
   m_TagString: Missile
@@ -118,6 +119,146 @@ MonoBehaviour:
   buildingList: {fileID: 5220243762919590110, guid: 861d94fa478dee5499b82a02c6a18e1e, type: 3}
   playerController: {fileID: 0}
   explosionPrefab: {fileID: 8876180582956997849, guid: 88b4d2dea75418d49b7882e7b805f40c, type: 3}
+--- !u!96 &75598572872747287
+TrailRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324104108608944300}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1110134553
+  m_SortingLayer: 4
+  m_SortingOrder: 2
+  m_Time: 5
+  m_PreviewTimeScale: 1
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.2041416
+        inSlope: -0.0680114
+        outSlope: -0.0680114
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.78968066
+        value: 0.021737188
+        inSlope: -0.31413788
+        outSlope: -0.31413788
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.049998704
+        outWeight: 0.400429
+      - serializedVersion: 3
+        time: 0.8845473
+        value: 0.00529626
+        inSlope: -0.07580855
+        outSlope: -0.07580855
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.39958206
+        outWeight: 0.12883884
+      - serializedVersion: 3
+        time: 0.91957104
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.9664373
+        value: 0
+        inSlope: -0.06477762
+        outSlope: -0.06477762
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 0.018101081, b: 0, a: 1}
+      key1: {r: 1, g: 0.069085926, b: 0.015686274, a: 1}
+      key2: {r: 1, g: 1, b: 1, a: 0}
+      key3: {r: 1, g: 1, b: 1, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 32960
+      ctime2: 63222
+      ctime3: 63222
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
+  m_Autodestruct: 0
+  m_Emitting: 1
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &2625763221379808447
 GameObject:
   m_ObjectHideFlags: 0
